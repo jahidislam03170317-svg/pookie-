@@ -4,368 +4,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Princess Mim ❤️</title>
+<title>Birthday Memories ❤️</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  font-family:Georgia,serif;
-  background:linear-gradient(135deg,#210d36,#5c225f,#170d2b);
-  color:white;
-  text-align:center;
-  overflow-x:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.light{
-  position:fixed;top:0;left:0;width:100%;
-  height:9px;z-index:10;
-  background:repeating-linear-gradient(90deg,
-  #ff6ab5 0 12px,#ffe58b 12px 24px,
-  #a88bff 24px 36px);
-  box-shadow:0 0 20px #ff80c8;
-  animation:glow 1s infinite alternate;
-}
-@keyframes glow{to{opacity:.4}}
-
-header{padding:75px 15px 30px}
-h1{
-  color:#ffb6df;
-  font-size:clamp(32px,8vw,55px);
-  text-shadow:0 0 25px #ff5eb7;
-}
-.subtitle{margin:15px;color:#ffe3f4;font-size:17px}
-
-.heart{
-  font-size:35px;
-  animation:beat 1.2s infinite;
-}
-@keyframes beat{50%{transform:scale(1.3)}}
-
-section{padding:35px 15px;position:relative;z-index:2}
-
-.card{
-  max-width:650px;
-  margin:auto;
-  padding:25px 18px;
-  border:1px solid #ffc4e8;
-  border-radius:25px;
-  background:linear-gradient(135deg,#ffffff18,#ffffff08);
-  backdrop-filter:blur(10px);
-  box-shadow:0 0 30px #ff76c344;
+body {
+  background: #080510;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  height: 100vh;
 }
 
-h2{color:#ffc0e5;margin-bottom:18px}
-
-.scene{
-  max-width:900px;
-  margin:20px auto;
-  border:3px solid #ffb9e2;
-  border-radius:23px;
-  overflow:hidden;
-  box-shadow:0 0 35px #ff64b9;
-  animation:sceneGlow 3s infinite alternate;
-}
-.scene img{
-  width:100%;
-  display:block;
-  animation:sceneFloat 5s ease-in-out infinite;
-}
-@keyframes sceneGlow{
-  to{box-shadow:0 0 55px #ff9bd8}
-}
-@keyframes sceneFloat{
-  50%{transform:scale(1.025)}
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: radial-gradient(circle, #64204f, #090514);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.balloons{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:1;
-}
-.balloon{
-  position:absolute;
-  font-size:38px;
-  animation:sway 4s ease-in-out infinite;
-}
-.b1{left:3%;top:22%}
-.b2{right:4%;top:32%;animation-delay:1s}
-.b3{left:8%;top:70%;animation-delay:2s}
-.b4{right:8%;top:72%;animation-delay:1.5s}
-
-@keyframes sway{
-  0%,100%{transform:translateY(0) rotate(-8deg)}
-  50%{transform:translateY(-25px) rotate(8deg)}
+.intro h1 {
+  font-size: 34px;
+  color: #ffb6dc;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px #ff36a6;
 }
 
-.countdown{
-  font-size:21px;
-  color:#ffd0e9;
-  line-height:1.8;
-  margin-top:18px;
+.intro p { margin-bottom: 25px; }
+
+button {
+  padding: 14px 35px;
+  border: none;
+  border-radius: 30px;
+  background: #ff3e9d;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.gallery{
-  max-width:700px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-.photo{
-  padding:9px;
-  background:#fff0fa;
-  border-radius:17px;
-  color:#a43e79;
-  box-shadow:0 5px 25px #ff85c655;
-  transition:.4s;
-}
-.photo:hover{transform:translateY(-8px) rotate(2deg)}
-.photo:nth-child(3){
-  grid-column:1/-1;
-  width:75%;
-  justify-self:center;
-}
-.photo img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  border-radius:12px;
-}
-.photo p{padding:10px 2px;font-size:14px}
-
-button{
-  background:linear-gradient(45deg,#ff65af,#b76aff);
-  border:1px solid #ffd5ec;
-  padding:14px 25px;
-  color:white;
-  border-radius:30px;
-  font-size:16px;
-  margin:15px 5px;
-  cursor:pointer;
-  box-shadow:0 0 20px #ff79c566;
-}
-button:active{transform:scale(.94)}
-
-.letter{
-  display:none;
-  padding:20px 10px;
-  line-height:2;
-  color:#ffe1f2;
-  animation:show 1s;
-}
-.letter.show{display:block}
-@keyframes show{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+.scene {
+  height: 100vh;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle, #3c1745, #080510);
 }
 
-.gift{
-  font-size:85px;
-  cursor:pointer;
-  animation:gift 2s infinite;
-}
-@keyframes gift{
-  50%{transform:rotate(8deg) scale(1.1)}
-}
-
-#giftMessage{display:none;color:#ffd0e9;line-height:1.9}
-
-footer{
-  padding:40px 10px;
-  color:#ffc5e7;
+.photo {
+  position: absolute;
+  width: 88%;
+  height: 72%;
+  object-fit: contain;
+  border-radius: 18px;
+  opacity: 0;
+  transform: scale(.65);
+  box-shadow: 0 0 30px #ff39b4;
 }
 
-.floating-heart{
-  position:fixed;
-  bottom:-30px;
-  pointer-events:none;
-  z-index:5;
-  animation:rise 6s linear forwards;
-}
-@keyframes rise{
-  to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+.photo.show {
+  animation: photoEffect 3s ease both;
 }
 
-@media(max-width:450px){
-  .photo img{height:150px}
-  .gallery{gap:10px}
+@keyframes photoEffect {
+  0% {
+    opacity: 0;
+    transform: scale(.55) rotate(-5deg);
+    filter: blur(12px);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: blur(0);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35) translateX(-30px);
+    filter: blur(5px);
+  }
+}
+
+.caption {
+  position: absolute;
+  bottom: 7%;
+  font-size: 24px;
+  color: #ffd2e9;
+  text-shadow: 0 0 15px #ff3ca6;
+  z-index: 2;
+  text-align: center;
+}
+
+.end {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #8c245d, #10091e);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+.end h1 {
+  font-size: 38px;
+  color: #ffd2ec;
+  text-shadow: 0 0 20px #ff45ae;
+  animation: pulse 1.5s infinite alternate;
+}
+
+.end p {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+@keyframes pulse {
+  to { transform: scale(1.12); }
+}
+
+.heart {
+  position: fixed;
+  top: -30px;
+  animation: fall 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="light"></div>
-
-<div class="balloons">
-  <div class="balloon b1">🎈</div>
-  <div class="balloon b2">🎈</div>
-  <div class="balloon b3">💗</div>
-  <div class="balloon b4">🎈</div>
+<div class="intro" id="intro">
+  <h1>Happy Birthday ❤️</h1>
+  <p>A Beautiful Journey of Memories</p>
+  <button onclick="startShow()">Start Surprise 🎁</button>
 </div>
 
-<header>
-  <div class="heart">💗</div>
-  <h1>Happy Birthday Mim!</h1>
-  <p class="subtitle">Welcome to your little world, Princess 👑</p>
-</header>
-
-<section>
-  <div class="scene">
-  <img src="birthday-scene.png" alt="Happy Birthday Mim">
+<div class="scene" id="scene">
+  <img class="photo" id="photo" src="" alt="Birthday memory">
+  <div class="caption">Beautiful Memories ❤️</div>
 </div>
-  <p style="color:#ffd4ec;margin-top:15px">
-    A beautiful celebration, made only for you 🌹
-  </p>
-</section>
 
-<section>
-  <div class="card">
-    <h2>🎂 December 2, 2026 🎂</h2>
-    <div style="font-size:55px">👑</div>
-    <h2>My Princess Mim</h2>
-    <p>Someone very special deserves the whole universe. ❤️</p>
-    <div class="countdown" id="countdown"></div>
-  </div>
-</section>
-
-<section>
-  <h2>🌸 Our Beautiful Memories 🌸</h2>
-  <div class="gallery">
-    <div class="photo">
-      <img src="photo1.jpg" alt="Memory 1">
-      <p>My favourite smile ❤️</p>
-    </div>
-    <div class="photo">
-      <img src="photo2.jpg" alt="Memory 2">
-      <p>My beautiful princess 🌷</p>
-    </div>
-    <div class="photo">
-      <img src="photo3.jpg" alt="Memory 3">
-      <p>A memory to keep forever 💗</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="card">
-    <h2>💌 A Letter For You</h2>
-    <p>There is something special waiting for you...</p>
-    <button onclick="openLetter()">Open My Letter 💗</button>
-
-    <div class="letter" id="letter">
-      My Dear Mim, ❤️
-      <br><br>
-      Happy Birthday, my favourite person! 🥹
-      <br><br>
-      You are one of the most beautiful parts
-      of my life. Your smile makes my days brighter.
-      <br><br>
-      May Allah bless you with happiness,
-      good health and endless success.
-      <br><br>
-      Never stop smiling, Princess.
-      You deserve all the beautiful things in this world.
-      <br><br>
-      Always yours,
-      <br>
-      With endless love ❤️
-      <br><br>
-      🌸 🦋 💗 🌹
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="card">
-    <h2>🎁 A Little Surprise</h2>
-    <p>Something is waiting inside this gift!</p>
-    <div class="gift" onclick="openGift()">🎁</div>
-    <div id="giftMessage">
-      <h2>For My Princess Mim ❤️</h2>
-      <p>
-        This little website is a piece of my heart.
-        Keep this little memory forever. 🥹
-      </p>
-      <div style="font-size:40px">💗🌹👑</div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="heart">💗</div>
-  <h2>Love You, Mim!</h2>
-  <p>Today, tomorrow and always. ❤️</p>
-</section>
-
-<section>
-  <button onclick="playMusic()">🎵 Play Birthday Music</button>
-  <p style="font-size:12px;color:#eec8e8">
-    Tap to start the music
-  </p>
-</section>
+<div class="end" id="end">
+  <h1>Happy Birthday 🎂</h1>
+  <p>May your life always be filled with happiness ❤️</p>
+  <p>Lots of love! 💖</p>
+</div>
 
 <audio id="music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<footer>
-  Made with love ❤️
-  <br><br>
-  For My Princess Mim 👑
-  <br>
-  December 2, 2026
-</footer>
-
 <script>
-function openLetter(){
-  document.getElementById("letter").classList.toggle("show");
+const photos = [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg"
+];
+
+let index = 0;
+
+function startShow() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("scene").style.display = "flex";
+
+  const music = document.getElementById("music");
+  music.play().catch(error => {
+    console.log("Music playback failed:", error);
+  });
+
+  showPhoto();
+  setInterval(createHeart, 500);
 }
 
-function openGift(){
-  document.getElementById("giftMessage").style.display="block";
-}
-
-function playMusic(){
-  const music=document.getElementById("music");
-  music.play().catch(()=>alert("Please add music.mp3 to your website files."));
-}
-
-function updateCountdown(){
-  const birthday=new Date("2026-12-02T00:00:00+06:00").getTime();
-  const now=Date.now();
-  const diff=birthday-now;
-  const el=document.getElementById("countdown");
-
-  if(diff<=0){
-    el.innerHTML="🎉 Happy Birthday, Mim! 🎉";
+function showPhoto() {
+  if (index >= photos.length) {
+    document.getElementById("scene").style.display = "none";
+    document.getElementById("end").style.display = "flex";
     return;
   }
 
-  const d=Math.floor(diff/86400000);
-  const h=Math.floor(diff%86400000/3600000);
-  const m=Math.floor(diff%3600000/60000);
-  const s=Math.floor(diff%60000/1000);
+  const photo = document.getElementById("photo");
+  photo.classList.remove("show");
+  photo.src = photos[index];
 
-  el.innerHTML=d+" Days "+h+" Hours<br>"+
-  m+" Minutes "+s+" Seconds";
+  photo.onload = function() {
+    void photo.offsetWidth;
+    photo.classList.add("show");
+  };
+
+  index++;
+  setTimeout(showPhoto, 3000);
 }
 
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-setInterval(()=>{
-  const heart=document.createElement("div");
-  heart.className="floating-heart";
-  heart.innerHTML=["💗","💕","🌸","✨","🦋"][Math.floor(Math.random()*5)];
-  heart.style.left=Math.random()*95+"%";
-  heart.style.fontSize=(15+Math.random()*20)+"px";
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
   document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-},700);
+  setTimeout(() => heart.remove(), 6000);
+}
 </script>
-
 </body>
 </html>
